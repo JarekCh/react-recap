@@ -1,3 +1,4 @@
+import { style } from '@mui/system';
 import React, { useState, useEffect } from 'react'
 import { FaAngleDoubleRight } from 'react-icons/fa'
 
@@ -24,21 +25,34 @@ function App() {
     </section>
   }
   const { company, dates, duties, title } = jobs[value];
+
   const jobDuties = duties.map((duty, i) => {
     return <div key={i} className='job-desc'>
       <FaAngleDoubleRight className='job-icon' />
       <p>{duty}</p>
     </div>
-  })
+  });
+
+  const jobBtns = jobs.map((item, i) => {
+    return <button 
+            className={`job-btn ${i === value && 'active-btn'}`} 
+            key={item.id} 
+            onClick={() => {setValue(i)}}>
+      {item.company}
+    </button>
+  });
   
 
   return <section className='section'>
     <div className='title'>
       <h2>expirence</h2>
-      <div className="underline"></div>s
+      <div className="underline"></div>
     </div>
     <div className="jobs-center">
       {/* btn container */}
+      <div className="btn-container">
+        {jobBtns}
+      </div>
       {/* job info */}
       <article className='job-info'>
         <h3>{title}</h3>
