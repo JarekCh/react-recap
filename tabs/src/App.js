@@ -23,9 +23,31 @@ function App() {
       <h1>Loading...</h1>
     </section>
   }
+  const { company, dates, duties, title } = jobs[value];
+  const jobDuties = duties.map((duty, i) => {
+    return <div key={i} className='job-desc'>
+      <FaAngleDoubleRight className='job-icon' />
+      <p>{duty}</p>
+    </div>
+  })
   
 
-  return <h2>Jobs</h2>
+  return <section className='section'>
+    <div className='title'>
+      <h2>expirence</h2>
+      <div className="underline"></div>s
+    </div>
+    <div className="jobs-center">
+      {/* btn container */}
+      {/* job info */}
+      <article className='job-info'>
+        <h3>{title}</h3>
+        <h4>{company}</h4>
+        <p className='job-date'>{dates}</p>
+        {jobDuties}
+      </article>
+    </div>
+  </section>
 }
 
 export default App
