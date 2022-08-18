@@ -60,7 +60,7 @@ const reducer = (state, action) => {
     return { ...state, cart: action.payload, loading: false };
   }
 
-  //   alternative for increase and decrease sliteed func
+  //   alternative for increase and decrease splited func
   if (action.type === 'TOGGLE_AMOUNT') {
     let tempCart = state.cart
       .map((cartItem) => {
